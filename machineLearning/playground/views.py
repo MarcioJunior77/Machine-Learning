@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import numpy as np
 
 def say_hello(request):
     # Neuron data
@@ -7,7 +8,7 @@ def say_hello(request):
     weights = [4.2, 9.1, 5.4]
     bias = 4
 
-    output = inputs[0]*weights[0] + inputs[1]*weights[1] + inputs[2]*weights[2] + bias
+    output = np.dot(inputs, weights) + bias
     return HttpResponse(output)
 
 # def neural_network(request):
